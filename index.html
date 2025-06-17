@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Aaron's Portfolio</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Audiowide">
+</head>
+<body>
+  <!-- Background Video -->
+  <video class="home-background" autoplay muted loop>
+    <source src="https://cdn.glitch.me/5d6c7b72-81fa-4d91-aac6-4d010245a37b/portfolio_background1.mp4?v=1749758100110" type="video/mp4">
+  </video>
+
+  <!-- Navigation -->
+  <nav>
+    <ul>
+      <li><a href="">Home</a></li>
+      <li><a href="https://www.linkedin.com/in/aaronjohnson-profile/">LinkedIn</a></li>
+      <li><a href="mailto:ajohnson@r2hintern.org">Email</a></li>
+    </ul>
+  </nav>
+
+  <!-- Profile Section -->
+  <div class="profile">
+    <img src="https://cdn.glitch.global/5d6c7b72-81fa-4d91-aac6-4d010245a37b/Headshot.JPG?v=1750081312814" alt="Myself" class="headshot-jpg">
+    
+    <div class="content">
+      <h1>Hello, I'm Aaron!</h1>
+      <p>I'm an aspiring software engineer with a passion for technology. I'm currently learning how to be a front-end developer while working on my craft. Check out some of my projects below!</p>
+    </div>
+  </div>
+  <!--Projects-->
+<div class = "projects">
+  <h2>
+    Check out my Projects!
+  </h2>
+  <img src="https://cdn.glitch.global/5d6c7b72-81fa-4d91-aac6-4d010245a37b/Coming-Soon-background.webp?v=1750098018431">
+  <img src="https://cdn.glitch.global/5d6c7b72-81fa-4d91-aac6-4d010245a37b/Coming-Soon-background.webp?v=1750098018431">
+  <img src="https://cdn.glitch.global/5d6c7b72-81fa-4d91-aac6-4d010245a37b/Coming-Soon-background.webp?v=1750098018431">
+  
+  </div>
+<!-- Form -->
+  <div class="form-section">
+    <form id="contactForm">
+      <label for="contact-choice">Like what you see? Contact Me Here!</label>
+      <select id="contact-choice" name="contactme">
+        <option value="" selected disabled>Select</option>
+        <option value="linkedin">LinkedIn</option>
+        <option value="email">Email</option>
+      </select>
+    </form>
+
+    <!-- Display section for image and link -->
+    <div id="contactDisplay"></div>
+  </div>
+
+ <!-- Script for dropdown -->
+  <script>
+  const contactOptions = {
+    linkedin: {
+      image: "https://cdn-icons-png.flaticon.com/512/174/174857.png",
+      link: "https://www.linkedin.com/in/aaronjohnson-profile/"
+    },
+    email: {
+      image: "https://cdn-icons-png.flaticon.com/512/732/732200.png",
+      link: "mailto:ajohnson@r2hintern.org"
+    }
+  };
+
+  const select = document.getElementById("contact-choice");
+  const display = document.getElementById("contactDisplay");
+
+  select.addEventListener("change", () => {
+    const selected = select.value;
+    const contact = contactOptions[selected];
+
+    if (contact) {
+      display.innerHTML = `
+        <a href="${contact.link}" target="_blank">
+          <img src="${contact.image}" alt="${selected}" class="contact-img" />
+        </a>
+      `;
+      // Animation
+      requestAnimationFrame(() => {
+        display.classList.add("show");
+      });
+    } else {
+      display.innerHTML = "";
+      display.classList.remove("show");
+    }
+  });
+</script>
+<footer>
+  <p>&copy; 2025 Aaron Johnson. All rights reserved.</p>
+  <p>Contact me at <a href="mailto:ajohnson@r2hintern.org" style="color: #00ffff;">ajohnson@r2hintern.org</a></p>
+</footer>
+
+</body>
+</html>
